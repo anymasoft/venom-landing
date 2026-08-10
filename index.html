@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Venom VPN — Break Through Censorship. Browse Freely.</title>
-<meta name="description" content="Venom VPN uses VLESS + Reality protocol to bypass government censorship and deep packet inspection. Fast, undetectable, no logs.">
+<title>Venom VPN — обход блокировок и замедления. YouTube снова работает.</title>
+<meta name="description" content="Venom VPN на протоколе VLESS + Reality: маскирует трафик под обычный HTTPS, обходит DPI и замедление. Быстро, незаметно, без логов.">
 <link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -95,6 +95,7 @@
   .plan ul li { font-size: 14px; color: var(--text-dim); display: flex; gap: 10px; }
   .plan ul li::before { content: "✓"; color: var(--accent); font-family: var(--mono); }
   .plan .btn { width: 100%; padding: 13px; }
+  .pricing-note { text-align: center; color: var(--text-dim); font-size: 13.5px; margin-top: 22px; }
 
   /* FAQ */
   .faq-item { border-bottom: 1px solid var(--border); padding: 22px 0; }
@@ -143,28 +144,28 @@
   <div class="wrap hdr-row">
     <div class="brand"><img src="assets/logo.png" alt="Venom VPN"> Venom VPN</div>
     <nav class="hdr-nav">
-      <a href="#how">How it works</a>
-      <a href="#tech">Technology</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#faq">FAQ</a>
+      <a href="#how">Как это работает</a>
+      <a href="#tech">Технология</a>
+      <a href="#pricing">Тарифы</a>
+      <a href="#faq">Вопросы</a>
     </nav>
-    <a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener" class="btn btn-primary">Get Started</a>
+    <a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener" class="btn btn-primary">Установить</a>
   </div>
 </header>
 
 <section class="hero">
   <div class="wrap">
-    <div class="eyebrow"><span class="dot"></span> VLESS + REALITY PROTOCOL</div>
-    <h1 class="glow">Break Through Censorship.<br>Browse Freely.</h1>
-    <p class="lead">Venom VPN masks your traffic as ordinary HTTPS — undetectable by deep packet inspection, built for the countries where regular VPNs get blocked.</p>
+    <div class="eyebrow"><span class="dot"></span> ПРОТОКОЛ VLESS + REALITY</div>
+    <h1 class="glow">Пробей блокировки.<br>Открой интернет.</h1>
+    <p class="lead">Venom VPN маскирует трафик под обычный HTTPS — его не видит DPI и системы замедления. Сделан для мест, где обычные VPN блокируют.</p>
     <div class="hero-cta">
-      <a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener" class="btn btn-primary">Get Started</a>
-      <a href="#how" class="btn btn-ghost">How it works</a>
+      <a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener" class="btn btn-primary">Установить бесплатно</a>
+      <a href="#how" class="btn btn-ghost">Как это работает</a>
     </div>
     <div class="hero-stats">
-      <div><div class="num">&lt;50ms</div><div class="label">avg. added latency</div></div>
-      <div><div class="num">0</div><div class="label">logs kept</div></div>
-      <div><div class="num">24/7</div><div class="label">support</div></div>
+      <div><div class="num">&lt;50 мс</div><div class="label">задержка сверху</div></div>
+      <div><div class="num">0</div><div class="label">логов</div></div>
+      <div><div class="num">3 дня</div><div class="label">бесплатно, без карты</div></div>
     </div>
   </div>
 </section>
@@ -172,25 +173,25 @@
 <section class="sec" id="problem">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-tag">The problem</span>
-      <h2>Standard VPNs don't survive real censorship</h2>
-      <p>Governments don't just block websites anymore — they detect and block the VPN traffic itself.</p>
+      <span class="sec-tag">Проблема</span>
+      <h2>Обычные VPN не выживают под реальной цензурой</h2>
+      <p>Сайты теперь не просто блокируют — научились распознавать и глушить сам VPN-трафик.</p>
     </div>
     <div class="grid-3">
       <div class="card">
         <div class="ic">⛔</div>
-        <h3>Sites &amp; apps get blocked</h3>
-        <p>News, social media, messengers — cut off at the ISP level, sometimes overnight.</p>
+        <h3>Сайты и сервисы блокируют</h3>
+        <p>YouTube замедляют, соцсети и мессенджеры режут на уровне провайдера — иногда за одну ночь.</p>
       </div>
       <div class="card">
         <div class="ic">🔍</div>
-        <h3>DPI catches ordinary VPNs</h3>
-        <p>Deep Packet Inspection flags the traffic pattern of common VPN protocols, not just their destination.</p>
+        <h3>DPI ловит обычные VPN</h3>
+        <p>Глубокий анализ трафика (DPI) распознаёт сам почерк популярных VPN-протоколов, а не только адрес.</p>
       </div>
       <div class="card">
         <div class="ic">🐌</div>
-        <h3>Detected = throttled or dead</h3>
-        <p>Once flagged, a connection gets slowed to uselessness or dropped entirely.</p>
+        <h3>Распознали — замедлили или отрубили</h3>
+        <p>Как только соединение помечено, его либо душат до бесполезности, либо рвут полностью.</p>
       </div>
     </div>
   </div>
@@ -199,25 +200,25 @@
 <section class="sec" id="how">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-tag">How it works</span>
-      <h2>Three steps to an open internet</h2>
-      <p>No technical knowledge required.</p>
+      <span class="sec-tag">Как это работает</span>
+      <h2>Три шага до открытого интернета</h2>
+      <p>Ничего настраивать не нужно.</p>
     </div>
     <div class="steps">
       <div class="step">
         <div class="n">01</div>
-        <h3>Subscribe</h3>
-        <p>Pick a plan, pay by card. Your access details arrive by email in under a minute.</p>
+        <h3>Установите расширение</h3>
+        <p>Бесплатно из Chrome Web Store — в один клик, как любое расширение.</p>
       </div>
       <div class="step">
         <div class="n">02</div>
-        <h3>Download the app</h3>
-        <p>Official, free client apps for Windows, macOS, iOS and Android.</p>
+        <h3>Нажмите «Включить»</h3>
+        <p>3 дня бесплатно, без карты и регистрации. YouTube и заблокированные сайты сразу открываются.</p>
       </div>
       <div class="step">
         <div class="n">03</div>
-        <h3>Connect &amp; browse freely</h3>
-        <p>One tap to connect. Your traffic is now indistinguishable from regular HTTPS browsing.</p>
+        <h3>Продлевайте, когда понравится</h3>
+        <p>Оплата прямо в расширении — карта, СБП или крипта. Одна подписка работает и на ПК, и на Android.</p>
       </div>
     </div>
   </div>
@@ -226,21 +227,21 @@
 <section class="sec" id="tech">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-tag">Technology</span>
-      <h2>Built on VLESS + Reality</h2>
+      <span class="sec-tag">Технология</span>
+      <h2>Построен на VLESS + Reality</h2>
     </div>
     <div class="tech-grid">
       <ul class="tech-list">
-        <li><span class="chk">▸</span><span><b>Undetectable by DPI.</b> Reality makes your connection mimic a real TLS handshake to a legitimate website — there's no distinctive VPN fingerprint to flag.</span></li>
-        <li><span class="chk">▸</span><span><b>No logs, ever.</b> We don't record what you connect to, when, or for how long.</span></li>
-        <li><span class="chk">▸</span><span><b>Modern, fast protocol.</b> VLESS is lighter than legacy VPN protocols — lower latency, better for video and calls.</span></li>
-        <li><span class="chk">▸</span><span><b>Official clients only.</b> No modified apps, no third-party builds — just the standard, auditable clients.</span></li>
+        <li><span class="chk">▸</span><span><b>Незаметен для DPI.</b> Reality заставляет соединение выглядеть как настоящее TLS-рукопожатие с обычным сайтом — характерного «отпечатка VPN» просто нет.</span></li>
+        <li><span class="chk">▸</span><span><b>Никаких логов.</b> Мы не записываем, куда вы заходите, когда и как долго.</span></li>
+        <li><span class="chk">▸</span><span><b>Современный быстрый протокол.</b> VLESS легче старых VPN-протоколов — ниже задержка, лучше для видео и звонков.</span></li>
+        <li><span class="chk">▸</span><span><b>Только штатные клиенты.</b> Никаких модифицированных сборок — стандартные, проверяемые приложения.</span></li>
       </ul>
-      <div class="term-box"><span class="dim">$</span> connecting to relay...
-<span class="dim">$</span> tls fingerprint: <span>chrome/win32</span>
-<span class="dim">$</span> protocol: <span>vless+reality</span>
-<span class="dim">$</span> dpi signature: <span>none detected</span>
-<span class="dim">$</span> status: <span>connected — 47ms</span></div>
+      <div class="term-box"><span class="dim">$</span> подключение к узлу...
+<span class="dim">$</span> tls-отпечаток: <span>chrome/win32</span>
+<span class="dim">$</span> протокол: <span>vless+reality</span>
+<span class="dim">$</span> сигнатура dpi: <span>не обнаружена</span>
+<span class="dim">$</span> статус: <span>подключено — 47 мс</span></div>
     </div>
   </div>
 </section>
@@ -248,78 +249,83 @@
 <section class="sec" id="pricing">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-tag">Pricing</span>
-      <h2>Simple plans, no surprises</h2>
-      <p>Cancel anytime. All plans include every feature — the only difference is how much you save.</p>
+      <span class="sec-tag">Тарифы</span>
+      <h2>Простые тарифы, без сюрпризов</h2>
+      <p>Отключить можно в любой момент. Все возможности во всех тарифах — отличается только цена за месяц.</p>
     </div>
     <div class="pricing-grid">
       <div class="plan">
-        <div class="name">Monthly</div>
-        <div class="price">$5<span>/mo</span></div>
-        <div class="sub">Billed monthly</div>
+        <div class="name">1 месяц</div>
+        <div class="price">400 ₽<span>/мес</span></div>
+        <div class="sub">Оплата помесячно</div>
         <ul>
-          <li>Unlimited bandwidth</li>
-          <li>VLESS + Reality protocol</li>
-          <li>All devices supported</li>
-          <li>24/7 support</li>
+          <li>Безлимитный трафик</li>
+          <li>Протокол VLESS + Reality</li>
+          <li>ПК и Android — одна подписка</li>
+          <li>Поддержка в Telegram</li>
         </ul>
-        <a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener" class="btn btn-ghost">Choose Monthly</a>
+        <a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener" class="btn btn-ghost">Установить</a>
       </div>
       <div class="plan featured">
-        <div class="plan-badge">MOST POPULAR</div>
-        <div class="name">3 Months</div>
-        <div class="price">$12<span>/3mo</span></div>
-        <div class="sub">= $4/mo · save 20%</div>
+        <div class="plan-badge">ПОПУЛЯРНЫЙ</div>
+        <div class="name">3 месяца</div>
+        <div class="price">990 ₽<span>/3 мес</span></div>
+        <div class="sub">= 330 ₽/мес · выгода 17%</div>
         <ul>
-          <li>Unlimited bandwidth</li>
-          <li>VLESS + Reality protocol</li>
-          <li>All devices supported</li>
-          <li>24/7 support</li>
+          <li>Безлимитный трафик</li>
+          <li>Протокол VLESS + Reality</li>
+          <li>ПК и Android — одна подписка</li>
+          <li>Поддержка в Telegram</li>
         </ul>
-        <a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener" class="btn btn-primary">Choose 3 Months</a>
+        <a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener" class="btn btn-primary">Установить</a>
       </div>
       <div class="plan">
-        <div class="name">Yearly</div>
-        <div class="price">$36<span>/yr</span></div>
-        <div class="sub">= $3/mo · save 40%</div>
+        <div class="name">12 месяцев</div>
+        <div class="price">2900 ₽<span>/год</span></div>
+        <div class="sub">= 242 ₽/мес · выгода 40%</div>
         <ul>
-          <li>Unlimited bandwidth</li>
-          <li>VLESS + Reality protocol</li>
-          <li>All devices supported</li>
-          <li>24/7 support</li>
+          <li>Безлимитный трафик</li>
+          <li>Протокол VLESS + Reality</li>
+          <li>ПК и Android — одна подписка</li>
+          <li>Поддержка в Telegram</li>
         </ul>
-        <a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener" class="btn btn-ghost">Choose Yearly</a>
+        <a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener" class="btn btn-ghost">Установить</a>
       </div>
     </div>
+    <p class="pricing-note">Оплата — внутри расширения, после установки. Сначала 3 дня бесплатно, карта не нужна.</p>
   </div>
 </section>
 
 <section class="sec" id="faq">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-tag">FAQ</span>
-      <h2>Questions, answered</h2>
+      <span class="sec-tag">Вопросы</span>
+      <h2>Отвечаем на главное</h2>
     </div>
     <div class="faq-list">
       <details class="faq-item">
-        <summary>Which countries does this work in?</summary>
-        <p>Venom VPN is designed for high-censorship environments where standard VPN protocols get detected and blocked. It works globally, including in countries with active DPI-based filtering.</p>
+        <summary>Где это работает?</summary>
+        <p>Venom рассчитан на среды с жёсткой фильтрацией, где обычные VPN-протоколы распознаются и блокируются. Работает по всему миру, в том числе там, где активно применяется DPI-фильтрация и замедление.</p>
       </details>
       <details class="faq-item">
-        <summary>Is it legal to use a VPN?</summary>
-        <p>VPN software itself is legal in the vast majority of countries. Local laws vary — you're responsible for complying with the regulations of your own jurisdiction.</p>
+        <summary>Нужно что-то настраивать?</summary>
+        <p>Нет. Установили расширение из Chrome Web Store, нажали «Включить» — и всё. Никаких конфигов, ключей и ручных настроек.</p>
       </details>
       <details class="faq-item">
-        <summary>What devices are supported?</summary>
-        <p>Official apps for Windows, macOS, iOS and Android, using standard, unmodified VLESS clients.</p>
+        <summary>Правда бесплатно на старте?</summary>
+        <p>Да. Первые 3 дня — бесплатно, без карты и регистрации. Продлевать подписку будете, только если понравится.</p>
       </details>
       <details class="faq-item">
-        <summary>How is this different from other VPNs?</summary>
-        <p>Most VPNs use protocols that DPI systems can fingerprint and block. Venom uses Reality, which mimics a real website's TLS handshake — there's no VPN-shaped signature to detect.</p>
+        <summary>А на телефоне работает?</summary>
+        <p>Да. Одна подписка работает и на компьютере (расширение для браузера), и на Android через штатный VLESS-клиент. Доплачивать за второе устройство не нужно.</p>
       </details>
       <details class="faq-item">
-        <summary>What's your refund policy?</summary>
-        <p>7-day money-back guarantee on your first purchase, no questions asked. See our <a href="/refund">Refund Policy</a> for details.</p>
+        <summary>Чем отличается от других VPN?</summary>
+        <p>Большинство VPN используют протоколы, которые DPI умеет распознавать и блокировать. Venom работает на Reality — он имитирует TLS-рукопожатие настоящего сайта, поэтому «отпечатка VPN» для блокировки просто нет.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Как оплатить?</summary>
+        <p>Прямо в расширении: карта, СБП или криптовалюта (USDT TRC-20). Доступ включается автоматически сразу после оплаты.</p>
       </details>
     </div>
   </div>
@@ -328,19 +334,19 @@
 <section class="sec" id="trust">
   <div class="wrap">
     <div class="trust-grid">
-      <div class="trust-item"><div class="ic">🔒</div><div class="t">No-logs policy</div><div class="d">We never record your activity</div></div>
-      <div class="trust-item"><div class="ic">🛡️</div><div class="t">Encrypted end-to-end</div><div class="d">Industry-standard encryption</div></div>
-      <div class="trust-item"><div class="ic">⚙️</div><div class="t">Official protocols</div><div class="d">VLESS + Reality, audited &amp; open</div></div>
-      <div class="trust-item"><div class="ic">💳</div><div class="t">Secure checkout</div><div class="d">Payments processed by Gumroad</div></div>
+      <div class="trust-item"><div class="ic">🔒</div><div class="t">Без логов</div><div class="d">Не записываем вашу активность</div></div>
+      <div class="trust-item"><div class="ic">🛡️</div><div class="t">Сквозное шифрование</div><div class="d">Современные стандарты защиты</div></div>
+      <div class="trust-item"><div class="ic">⚙️</div><div class="t">Открытые протоколы</div><div class="d">VLESS + Reality, проверяемые</div></div>
+      <div class="trust-item"><div class="ic">💳</div><div class="t">Удобная оплата</div><div class="d">Карта, СБП и крипта</div></div>
     </div>
   </div>
 </section>
 
 <section class="cta-final">
   <div class="wrap">
-    <h2 class="glow">Ready to browse freely?</h2>
-    <p>Set up in under 5 minutes. Cancel anytime.</p>
-    <a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener" class="btn btn-primary">Get Started</a>
+    <h2 class="glow">Готовы открыть интернет?</h2>
+    <p>Установка — меньше минуты. Первые 3 дня бесплатно.</p>
+    <a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener" class="btn btn-primary">Установить бесплатно</a>
   </div>
 </section>
 
@@ -348,100 +354,140 @@
   <div class="wrap footer-row">
     <div>
       <div class="brand"><img src="assets/logo.png" alt="Venom VPN"> Venom VPN</div>
-      <div class="footer-copy">© 2026 Venom VPN. All rights reserved.</div>
+      <div class="footer-copy">© 2026 Venom VPN</div>
     </div>
     <div class="footer-links">
-      <a href="/privacy">Privacy Policy</a>
-      <a href="/terms">Terms of Service</a>
-      <a href="/refund">Refund Policy</a>
+      <a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener">Расширение</a>
+      <a href="https://t.me/venom_vpn_claude" target="_blank" rel="noopener">Telegram-канал</a>
+      <a href="https://t.me/venom_vpn_bot" target="_blank" rel="noopener">Поддержка</a>
       <a href="mailto:support@venomvpn.app">support@venomvpn.app</a>
     </div>
   </div>
 </footer>
 
-<div id="pay-overlay" style="display:none; position:fixed; inset:0; background:rgba(6,10,8,0.75); z-index:100; align-items:center; justify-content:center; padding:20px;">
-  <div style="background:var(--card); border:1px solid var(--border); border-radius:16px; padding:32px; max-width:380px; width:100%; text-align:center; position:relative;">
-    <span onclick="closePay()" style="position:absolute; top:14px; right:18px; cursor:pointer; color:var(--text-dim); font-size:20px;">&times;</span>
-    <div id="pay-body"></div>
-  </div>
-</div>
+<!--
+  ================================================================
+  РЕЗЕРВНАЯ АНГЛИЙСКАЯ ВЕРСИЯ (НЕ УДАЛЯТЬ).
+  Чтобы вернуть EN — раскомментировать этот блок и убрать
+  русскую разметку <body> выше. Здесь же лежал старый скрипт
+  крипто-оплаты прямо на лендинге (openPay/global-api) — сейчас
+  не используется, все кнопки ведут в Chrome Web Store.
+  EN <title>: Venom VPN — Break Through Censorship. Browse Freely.
+  EN <meta description>: Venom VPN uses VLESS + Reality protocol to
+  bypass government censorship and deep packet inspection. Fast,
+  undetectable, no logs.
+  ================================================================
 
-<script>
-var PAY_API = 'https://youtubevpn.duckdns.org:8443/global-api';
-var TARIFF_LABELS = {'1m':'Monthly — $5', '3m':'3 Months — $12', '12m':'Yearly — $36'};
-var payPollTimer = null;
+  <header>
+    <div class="wrap hdr-row">
+      <div class="brand"><img src="assets/logo.png" alt="Venom VPN"> Venom VPN</div>
+      <nav class="hdr-nav">
+        <a href="#how">How it works</a>
+        <a href="#tech">Technology</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener" class="btn btn-primary">Get Started</a>
+    </div>
+  </header>
 
-function openPay(code) {
-  document.getElementById('pay-overlay').style.display = 'flex';
-  renderEmailForm(code);
-}
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow"><span class="dot"></span> VLESS + REALITY PROTOCOL</div>
+      <h1 class="glow">Break Through Censorship.<br>Browse Freely.</h1>
+      <p class="lead">Venom VPN masks your traffic as ordinary HTTPS — undetectable by deep packet inspection, built for the countries where regular VPNs get blocked.</p>
+      <div class="hero-cta">
+        <a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener" class="btn btn-primary">Get Started</a>
+        <a href="#how" class="btn btn-ghost">How it works</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="num">&lt;50ms</div><div class="label">avg. added latency</div></div>
+        <div><div class="num">0</div><div class="label">logs kept</div></div>
+        <div><div class="num">24/7</div><div class="label">support</div></div>
+      </div>
+    </div>
+  </section>
 
-function closePay() {
-  document.getElementById('pay-overlay').style.display = 'none';
-  if (payPollTimer) { clearInterval(payPollTimer); payPollTimer = null; }
-}
+  <section class="sec" id="problem">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">The problem</span>
+        <h2>Standard VPNs don't survive real censorship</h2>
+        <p>Governments don't just block websites anymore — they detect and block the VPN traffic itself.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card"><div class="ic">⛔</div><h3>Sites &amp; apps get blocked</h3><p>News, social media, messengers — cut off at the ISP level, sometimes overnight.</p></div>
+        <div class="card"><div class="ic">🔍</div><h3>DPI catches ordinary VPNs</h3><p>Deep Packet Inspection flags the traffic pattern of common VPN protocols, not just their destination.</p></div>
+        <div class="card"><div class="ic">🐌</div><h3>Detected = throttled or dead</h3><p>Once flagged, a connection gets slowed to uselessness or dropped entirely.</p></div>
+      </div>
+    </div>
+  </section>
 
-function renderEmailForm(code) {
-  document.getElementById('pay-body').innerHTML =
-    '<h3 style="margin:0 0 6px;">' + TARIFF_LABELS[code] + '</h3>' +
-    '<p style="color:var(--text-dim); font-size:14px; margin:0 0 18px;">Pay with USDT (TRC-20). Access delivered instantly after payment confirms on-chain.</p>' +
-    '<input id="pay-email" type="email" placeholder="you@example.com" style="width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:var(--bg-alt); color:var(--text); font-family:inherit; font-size:15px; margin-bottom:14px; box-sizing:border-box;">' +
-    '<div id="pay-error" style="color:#ff5c5c; font-size:13px; margin-bottom:10px; display:none;"></div>' +
-    '<button class="btn btn-primary" style="width:100%; padding:13px;" onclick="startPayment(\'' + code + '\')">Continue to payment</button>';
-}
+  <section class="sec" id="how">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-tag">How it works</span><h2>Three steps to an open internet</h2><p>No technical knowledge required.</p></div>
+      <div class="steps">
+        <div class="step"><div class="n">01</div><h3>Subscribe</h3><p>Pick a plan, pay by card. Your access details arrive by email in under a minute.</p></div>
+        <div class="step"><div class="n">02</div><h3>Download the app</h3><p>Official, free client apps for Windows, macOS, iOS and Android.</p></div>
+        <div class="step"><div class="n">03</div><h3>Connect &amp; browse freely</h3><p>One tap to connect. Your traffic is now indistinguishable from regular HTTPS browsing.</p></div>
+      </div>
+    </div>
+  </section>
 
-function startPayment(code) {
-  var email = document.getElementById('pay-email').value.trim();
-  var errEl = document.getElementById('pay-error');
-  if (!email || email.indexOf('@') === -1) {
-    errEl.textContent = 'Enter a valid email — your access link will be sent nowhere else but shown here.';
-    errEl.style.display = 'block';
-    return;
-  }
-  document.getElementById('pay-body').innerHTML = '<p style="color:var(--text-dim);">Creating invoice…</p>';
-  fetch(PAY_API + '/payments/create', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({email: email, tariff_code: code})
-  }).then(function(r) { return r.json(); }).then(function(data) {
-    renderWaiting(data);
-  }).catch(function() {
-    document.getElementById('pay-body').innerHTML = '<p style="color:#ff5c5c;">Could not create invoice. Please try again or contact support@venomvpn.app.</p>';
-  });
-}
+  <section class="sec" id="tech">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-tag">Technology</span><h2>Built on VLESS + Reality</h2></div>
+      <div class="tech-grid">
+        <ul class="tech-list">
+          <li><span class="chk">&#9656;</span><span><b>Undetectable by DPI.</b> Reality makes your connection mimic a real TLS handshake to a legitimate website.</span></li>
+          <li><span class="chk">&#9656;</span><span><b>No logs, ever.</b> We don't record what you connect to, when, or for how long.</span></li>
+          <li><span class="chk">&#9656;</span><span><b>Modern, fast protocol.</b> VLESS is lighter than legacy VPN protocols.</span></li>
+          <li><span class="chk">&#9656;</span><span><b>Official clients only.</b> No modified apps, no third-party builds.</span></li>
+        </ul>
+        <div class="term-box">connecting to relay... / tls fingerprint: chrome/win32 / protocol: vless+reality / dpi signature: none detected / status: connected — 47ms</div>
+      </div>
+    </div>
+  </section>
 
-function renderWaiting(data) {
-  var qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=' + encodeURIComponent(data.address || data.pay_url);
-  document.getElementById('pay-body').innerHTML =
-    '<h3 style="margin:0 0 14px;">Send ' + data.amount_usdt + ' USDT</h3>' +
-    '<img src="' + qrUrl + '" style="width:180px; height:180px; border-radius:10px; margin-bottom:14px;">' +
-    '<div class="mono" style="font-size:12px; word-break:break-all; background:var(--bg-alt); border:1px solid var(--border); border-radius:8px; padding:10px; margin-bottom:14px;">' + data.address + '</div>' +
-    '<p id="pay-status" style="color:var(--text-dim); font-size:13px;">Waiting for payment confirmation…</p>';
-  payPollTimer = setInterval(function() { pollStatus(data.payment_id); }, 5000);
-  pollStatus(data.payment_id);
-}
+  <section class="sec" id="pricing">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-tag">Pricing</span><h2>Simple plans, no surprises</h2><p>Cancel anytime. All plans include every feature.</p></div>
+      <div class="pricing-grid">
+        <div class="plan"><div class="name">Monthly</div><div class="price">$5<span>/mo</span></div><div class="sub">Billed monthly</div><ul><li>Unlimited bandwidth</li><li>VLESS + Reality protocol</li><li>All devices supported</li><li>24/7 support</li></ul><a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" class="btn btn-ghost">Choose Monthly</a></div>
+        <div class="plan featured"><div class="plan-badge">MOST POPULAR</div><div class="name">3 Months</div><div class="price">$12<span>/3mo</span></div><div class="sub">= $4/mo · save 20%</div><ul><li>Unlimited bandwidth</li><li>VLESS + Reality protocol</li><li>All devices supported</li><li>24/7 support</li></ul><a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" class="btn btn-primary">Choose 3 Months</a></div>
+        <div class="plan"><div class="name">Yearly</div><div class="price">$36<span>/yr</span></div><div class="sub">= $3/mo · save 40%</div><ul><li>Unlimited bandwidth</li><li>VLESS + Reality protocol</li><li>All devices supported</li><li>24/7 support</li></ul><a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" class="btn btn-ghost">Choose Yearly</a></div>
+      </div>
+    </div>
+  </section>
 
-function pollStatus(paymentId) {
-  fetch(PAY_API + '/payments/' + paymentId + '/status').then(function(r) { return r.json(); }).then(function(data) {
-    if (data.status === 'completed' || data.status === 'overpaid') {
-      clearInterval(payPollTimer);
-      payPollTimer = null;
-      renderDone(data.sub_link);
-    } else {
-      var el = document.getElementById('pay-status');
-      if (el) el.textContent = 'Status: ' + data.status + ' — checking every few seconds…';
-    }
-  }).catch(function() {});
-}
+  <section class="sec" id="faq">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-tag">FAQ</span><h2>Questions, answered</h2></div>
+      <div class="faq-list">
+        <details class="faq-item"><summary>Which countries does this work in?</summary><p>Venom VPN is designed for high-censorship environments where standard VPN protocols get detected and blocked.</p></details>
+        <details class="faq-item"><summary>What devices are supported?</summary><p>Official apps for Windows, macOS, iOS and Android, using standard VLESS clients.</p></details>
+        <details class="faq-item"><summary>How is this different from other VPNs?</summary><p>Venom uses Reality, which mimics a real website's TLS handshake — there's no VPN-shaped signature to detect.</p></details>
+      </div>
+    </div>
+  </section>
 
-function renderDone(subLink) {
-  document.getElementById('pay-body').innerHTML =
-    '<h3 style="margin:0 0 10px; color:var(--accent);">Payment confirmed</h3>' +
-    '<p style="color:var(--text-dim); font-size:14px; margin:0 0 14px;">Add this subscription link in v2rayNG / Streisand / Shadowrocket:</p>' +
-    '<div class="mono" style="font-size:11px; word-break:break-all; background:var(--bg-alt); border:1px solid var(--border); border-radius:8px; padding:10px; margin-bottom:14px;">' + subLink + '</div>' +
-    '<button class="btn btn-primary" style="width:100%; padding:12px;" onclick="navigator.clipboard.writeText(\'' + subLink + '\')">Copy link</button>';
-}
-</script>
+  <section class="sec" id="trust">
+    <div class="wrap">
+      <div class="trust-grid">
+        <div class="trust-item"><div class="ic">🔒</div><div class="t">No-logs policy</div><div class="d">We never record your activity</div></div>
+        <div class="trust-item"><div class="ic">🛡️</div><div class="t">Encrypted end-to-end</div><div class="d">Industry-standard encryption</div></div>
+        <div class="trust-item"><div class="ic">⚙️</div><div class="t">Official protocols</div><div class="d">VLESS + Reality, audited &amp; open</div></div>
+        <div class="trust-item"><div class="ic">💳</div><div class="t">Secure checkout</div><div class="d">Card, SBP and crypto</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-final">
+    <div class="wrap"><h2 class="glow">Ready to browse freely?</h2><p>Set up in under 5 minutes. Cancel anytime.</p><a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" class="btn btn-primary">Get Started</a></div>
+  </section>
+
+  END OF EN BACKUP
+-->
 
 </body>
 </html>
