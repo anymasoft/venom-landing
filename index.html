@@ -1,198 +1,447 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Venom VPN — YouTube без замедления. Один клик.</title>
-<meta name="description" content="Venom VPN — расширение для Chrome: открывает YouTube и заблокированные сайты в один клик. Без регистрации, 3 дня бесплатно, без слежки и без P2P.">
+<title>Venom VPN — Break Through Censorship. Browse Freely.</title>
+<meta name="description" content="Venom VPN uses VLESS + Reality protocol to bypass government censorship and deep packet inspection. Fast, undetectable, no logs.">
 <link rel="icon" type="image/png" href="assets/logo.png">
-<meta property="og:title" content="Venom VPN — YouTube без замедления">
-<meta property="og:description" content="Один клик — и YouTube снова быстрый. Расширение для Chrome. 3 дня бесплатно, без регистрации.">
-<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#26215C; --ink2:#332B73; --lav:#B7B1F2; --lav2:#8F88E0;
-    --bg:#f6f5fb; --card:#ffffff; --line:#e7e5f2; --text:#1c1a2e; --muted:#6f6c85;
-    --ok:#0F6E56;
+  :root {
+    --bg: #0A0E0C;
+    --bg-alt: #101512;
+    --card: #141A17;
+    --border: #232E29;
+    --text: #E9F2EC;
+    --text-dim: #8FA39A;
+    --accent: #39FF8A;
+    --accent-dim: #1F9D5B;
+    --mono: 'JetBrains Mono', monospace;
   }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;}
-  a{color:inherit;text-decoration:none;}
-  .wrap{max-width:1040px;margin:0 auto;padding:0 20px;}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:12px;font-weight:600;font-size:16px;padding:15px 26px;cursor:pointer;border:1.5px solid transparent;transition:.15s;font-family:inherit;}
-  .btn-primary{background:var(--ink);color:#fff;box-shadow:0 8px 24px rgba(38,33,92,.25);}
-  .btn-primary:hover{background:var(--ink2);transform:translateY(-1px);}
-  .btn-ghost{background:#fff;color:var(--ink);border-color:var(--line);}
-  .btn-ghost:hover{border-color:var(--lav2);}
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); font-family: 'Space Grotesk', sans-serif; color: var(--text); line-height: 1.5; }
+  a { color: var(--accent); text-decoration: none; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  .mono { font-family: var(--mono); }
+  .glow { text-shadow: 0 0 24px rgba(57,255,138,0.35); }
 
-  /* header */
-  header{position:sticky;top:0;z-index:20;background:rgba(246,245,251,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
-  .hdr{display:flex;align-items:center;justify-content:space-between;padding:14px 0;}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;color:var(--ink);}
-  .brand img{width:30px;height:30px;object-fit:contain;}
-  .hdr .btn{padding:10px 18px;font-size:14.5px;}
+  /* Header */
+  header { position: sticky; top: 0; z-index: 20; background: rgba(10,14,12,0.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+  .hdr-row { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; letter-spacing: -0.02em; }
+  .brand img { width: 30px; height: 30px; object-fit: contain; }
+  .hdr-nav { display: flex; gap: 28px; font-size: 14px; color: var(--text-dim); }
+  .hdr-nav a:hover { color: var(--text); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 10px; font-weight: 600; cursor: pointer; border: none; font-family: inherit; }
+  .btn-primary { background: var(--accent); color: #06120B; padding: 11px 22px; font-size: 14.5px; box-shadow: 0 0 30px rgba(57,255,138,0.25); }
+  .btn-primary:hover { background: #5CFFA3; }
+  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); padding: 10px 20px; font-size: 14.5px; }
 
-  /* hero */
-  .hero{text-align:center;padding:72px 0 40px;}
-  .badge{display:inline-block;background:#eef0ff;color:#4b45a6;font-weight:600;font-size:13px;border-radius:999px;padding:6px 14px;margin-bottom:22px;}
-  .hero h1{font-size:clamp(30px,6vw,50px);line-height:1.1;margin:0 0 16px;letter-spacing:-.02em;}
-  .hero h1 .hl{color:var(--ink);}
-  .hero p{font-size:clamp(16px,2.4vw,20px);color:var(--muted);max-width:620px;margin:0 auto 30px;}
-  .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-  .undernote{margin-top:16px;color:var(--muted);font-size:13.5px;}
+  /* Hero */
+  .hero { padding: 96px 0 80px; position: relative; overflow: hidden; }
+  .hero::before { content: ""; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(57,255,138,0.12) 0%, transparent 70%); pointer-events: none; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 12.5px; color: var(--accent); background: rgba(57,255,138,0.08); border: 1px solid rgba(57,255,138,0.25); border-radius: 100px; padding: 6px 14px; margin-bottom: 24px; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+  .hero h1 { font-size: 58px; font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; margin: 0 0 22px; max-width: 780px; }
+  .hero p.lead { font-size: 18px; color: var(--text-dim); max-width: 560px; margin: 0 0 36px; }
+  .hero-cta { display: flex; gap: 14px; align-items: center; margin-bottom: 44px; }
+  .hero-stats { display: flex; gap: 40px; font-family: var(--mono); }
+  .hero-stats .num { font-size: 22px; font-weight: 600; color: var(--text); }
+  .hero-stats .label { font-size: 12px; color: var(--text-dim); }
 
-  /* trust row */
-  .trust{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin:34px 0 8px;color:var(--muted);font-size:14px;}
-  .trust b{color:var(--text);}
-  .ti{width:17px;height:17px;vertical-align:-3px;}
-  .btn svg{flex:0 0 auto;}
+  /* Sections */
+  .sec { padding: 80px 0; border-top: 1px solid var(--border); }
+  .sec-head { max-width: 620px; margin: 0 0 48px; }
+  .sec-tag { font-family: var(--mono); font-size: 12.5px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; display: block; }
+  .sec-head h2 { font-size: 34px; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 14px; }
+  .sec-head p { color: var(--text-dim); font-size: 16px; margin: 0; }
 
-  /* sections */
-  section{padding:52px 0;}
-  .h2{font-size:clamp(24px,4vw,34px);text-align:center;margin:0 0 8px;letter-spacing:-.02em;}
-  .sub{text-align:center;color:var(--muted);margin:0 auto 36px;max-width:560px;}
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;}
-  .card .ic{width:44px;height:44px;border-radius:12px;background:#eef0ff;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px;}
-  .card h3{margin:0 0 6px;font-size:17.5px;}
-  .card p{margin:0;color:var(--muted);font-size:14.5px;}
+  /* Problem grid */
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 26px; }
+  .card h3 { font-size: 17px; margin: 0 0 10px; }
+  .card p { color: var(--text-dim); font-size: 14.5px; margin: 0; }
+  .card .ic { width: 38px; height: 38px; border-radius: 10px; background: rgba(57,255,138,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 18px; }
 
-  /* steps */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s;}
-  .step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;position:relative;}
-  .step:before{counter-increment:s;content:counter(s);position:absolute;top:18px;right:20px;font-weight:800;font-size:34px;color:#e9e7f7;}
-  .step h3{margin:6px 0 6px;font-size:17px;}
-  .step p{margin:0;color:var(--muted);font-size:14.5px;}
+  /* Steps */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .step { position: relative; padding-left: 4px; }
+  .step .n { font-family: var(--mono); font-size: 13px; color: var(--accent); margin-bottom: 10px; }
+  .step h3 { font-size: 18px; margin: 0 0 8px; }
+  .step p { color: var(--text-dim); font-size: 14.5px; margin: 0; }
 
-  /* final cta */
-  .final{background:linear-gradient(135deg,var(--ink),var(--ink2));border-radius:24px;color:#fff;text-align:center;padding:52px 24px;}
-  .final h2{font-size:clamp(24px,4vw,34px);margin:0 0 10px;}
-  .final p{color:#cfc9f2;margin:0 auto 26px;max-width:520px;}
-  .final .btn-primary{background:#fff;color:var(--ink);box-shadow:none;}
-  .final .btn-primary:hover{background:#f0eefc;}
-  .final .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.4);}
-  .final .btn-ghost:hover{border-color:#fff;}
+  /* Tech */
+  .tech-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+  .tech-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 18px; }
+  .tech-list li { display: flex; gap: 14px; align-items: flex-start; font-size: 15px; color: var(--text-dim); }
+  .tech-list li b { color: var(--text); }
+  .tech-list .chk { color: var(--accent); font-family: var(--mono); flex: 0 0 auto; }
+  .term-box { background: #06090780; border: 1px solid var(--border); border-radius: 16px; padding: 24px; font-family: var(--mono); font-size: 13px; color: var(--accent); line-height: 1.9; overflow-x: auto; white-space: pre; }
+  .term-box .dim { color: var(--text-dim); }
 
-  footer{padding:34px 0 46px;text-align:center;color:var(--muted);font-size:13.5px;}
-  footer a{color:var(--ink);font-weight:500;}
-  .foot-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:12px;}
+  /* Pricing */
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .plan { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 32px 28px; display: flex; flex-direction: column; }
+  .plan.featured { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 20px 50px rgba(57,255,138,0.08); position: relative; }
+  .plan-badge { position: absolute; top: -13px; left: 28px; background: var(--accent); color: #06120B; font-size: 11.5px; font-weight: 700; padding: 4px 12px; border-radius: 100px; font-family: var(--mono); }
+  .plan .name { font-size: 14px; color: var(--text-dim); margin-bottom: 10px; }
+  .plan .price { font-size: 40px; font-weight: 700; letter-spacing: -0.02em; }
+  .plan .price span { font-size: 15px; color: var(--text-dim); font-weight: 500; }
+  .plan .sub { font-size: 13px; color: var(--text-dim); margin: 4px 0 24px; }
+  .plan ul { list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-direction: column; gap: 11px; flex: 1; }
+  .plan ul li { font-size: 14px; color: var(--text-dim); display: flex; gap: 10px; }
+  .plan ul li::before { content: "✓"; color: var(--accent); font-family: var(--mono); }
+  .plan .btn { width: 100%; padding: 13px; }
 
-  @media(max-width:760px){
-    .grid,.steps{grid-template-columns:1fr;}
-    .hdr-nav{display:none;}
+  /* FAQ */
+  .faq-item { border-bottom: 1px solid var(--border); padding: 22px 0; }
+  .faq-item summary { cursor: pointer; font-size: 16px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: "+"; font-family: var(--mono); color: var(--accent); font-size: 20px; }
+  .faq-item[open] summary::after { content: "–"; }
+  .faq-item p { color: var(--text-dim); font-size: 14.5px; margin: 14px 0 0; max-width: 700px; }
+
+  /* Trust */
+  .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .trust-item { text-align: center; padding: 24px 14px; }
+  .trust-item .ic { font-size: 26px; margin-bottom: 12px; }
+  .trust-item .t { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .trust-item .d { font-size: 12.5px; color: var(--text-dim); }
+
+  /* Final CTA */
+  .cta-final { text-align: center; padding: 100px 24px; }
+  .cta-final h2 { font-size: 40px; margin: 0 0 16px; letter-spacing: -0.02em; }
+  .cta-final p { color: var(--text-dim); font-size: 16px; margin: 0 0 32px; }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--border); padding: 48px 0; }
+  .footer-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px; }
+  .footer-links { display: flex; gap: 24px; font-size: 13.5px; color: var(--text-dim); }
+  .footer-links a { color: var(--text-dim); }
+  .footer-links a:hover { color: var(--accent); }
+  .footer-copy { font-size: 12.5px; color: var(--text-dim); margin-top: 20px; }
+
+  @media (max-width: 860px) {
+    .hdr-nav { display: none; }
+    .hero h1 { font-size: 38px; }
+    .hero-stats { flex-wrap: wrap; gap: 24px; }
+    .grid-3, .steps, .trust-grid { grid-template-columns: 1fr; }
+    .tech-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .sec { padding: 56px 0; }
+    .sec-head h2 { font-size: 26px; }
+    .cta-final h2 { font-size: 28px; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="wrap hdr">
-    <div class="brand"><img src="assets/logo.png" alt="Venom"> Venom VPN</div>
-    <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener">Установить</a>
+  <div class="wrap hdr-row">
+    <div class="brand"><img src="assets/logo.png" alt="Venom VPN"> Venom VPN</div>
+    <nav class="hdr-nav">
+      <a href="#how">How it works</a>
+      <a href="#tech">Technology</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener" class="btn btn-primary">Get Started</a>
   </div>
 </header>
 
-<main>
-  <section class="hero">
-    <div class="wrap">
-      <span class="badge">3 дня бесплатно · без карты · без регистрации</span>
-      <h1>YouTube снова быстрый.<br><span class="hl">Один клик — и всё работает.</span></h1>
-      <p>Venom VPN — расширение для Chrome. Открывает YouTube и заблокированные сайты без замедления. Никаких аккаунтов и настроек: поставил, нажал — поехали.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11"/><path d="M8 11l4 4 4-4"/><path d="M5 20h14"/></svg>
-          Установить расширение для Chrome
-        </a>
-        <a class="btn btn-ghost" href="https://t.me/venom_vpn_bot" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 4.5l-19 8 6 2.2"/><path d="M21.5 4.5L18 20l-6.5-5.3"/><path d="M8.5 14.7L18 6.5"/></svg>
-          Открыть Telegram-бот
-        </a>
-      </div>
-      <div class="undernote">Работает и на ПК, и на Android — по одной подписке</div>
-      <div class="trust">
-        <span><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="#26215C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 13h5l-1 8 8-11h-5l1-7z"/></svg> <b>Быстрый</b> выделенный сервер</span>
-        <span><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="#26215C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 8.5-4-1-7-4-7-8.5V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg> <b>Без слежки</b> и без P2P</span>
-        <span><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="#26215C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/></svg> <b>Заточен</b> под YouTube</span>
-      </div>
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span> VLESS + REALITY PROTOCOL</div>
+    <h1 class="glow">Break Through Censorship.<br>Browse Freely.</h1>
+    <p class="lead">Venom VPN masks your traffic as ordinary HTTPS — undetectable by deep packet inspection, built for the countries where regular VPNs get blocked.</p>
+    <div class="hero-cta">
+      <a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener" class="btn btn-primary">Get Started</a>
+      <a href="#how" class="btn btn-ghost">How it works</a>
     </div>
-  </section>
+    <div class="hero-stats">
+      <div><div class="num">&lt;50ms</div><div class="label">avg. added latency</div></div>
+      <div><div class="num">0</div><div class="label">logs kept</div></div>
+      <div><div class="num">24/7</div><div class="label">support</div></div>
+    </div>
+  </div>
+</section>
 
-  <section>
-    <div class="wrap">
-      <h2 class="h2">Почему Venom</h2>
-      <p class="sub">Мы убрали всё, что бесит в бесплатных VPN.</p>
-      <div class="grid">
-        <div class="card">
-          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#26215C" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l13 7.5-5.5 1.8 2.8 5.5-2.6 1.4-2.8-5.5L6 18z"/></svg></div>
-          <h3>Один клик — и работает</h3>
-          <p>Без регистрации, без ввода кодов и настроек. Установил расширение, нажал «Включить» — YouTube открывается сразу.</p>
-        </div>
-        <div class="card">
-          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#26215C" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 8.5-4-1-7-4-7-8.5V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <h3>Только ваш трафик</h3>
-          <p>Выделенный сервер, только ваш трафик. Мы не P2P: не гоняем через вас чужой трафик и не светим ваш IP — в отличие от «бесплатных» сетей.</p>
-        </div>
-        <div class="card">
-          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#26215C" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg></div>
-          <h3>Прозрачно и без рекламы</h3>
-          <p>3 дня бесплатно, потом 400 ₽/мес. Оплата картой или СБП прямо в браузере. Никаких рекламных баннеров в окне.</p>
-        </div>
+<section class="sec" id="problem">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">The problem</span>
+      <h2>Standard VPNs don't survive real censorship</h2>
+      <p>Governments don't just block websites anymore — they detect and block the VPN traffic itself.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="ic">⛔</div>
+        <h3>Sites &amp; apps get blocked</h3>
+        <p>News, social media, messengers — cut off at the ISP level, sometimes overnight.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🔍</div>
+        <h3>DPI catches ordinary VPNs</h3>
+        <p>Deep Packet Inspection flags the traffic pattern of common VPN protocols, not just their destination.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🐌</div>
+        <h3>Detected = throttled or dead</h3>
+        <p>Once flagged, a connection gets slowed to uselessness or dropped entirely.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section style="padding-top:0;">
-    <div class="wrap">
-      <h2 class="h2">Как начать</h2>
-      <p class="sub">Меньше минуты.</p>
-      <div class="steps">
-        <div class="step">
-          <h3>Установите расширение</h3>
-          <p>Из Chrome Web Store в один клик.</p>
-        </div>
-        <div class="step">
-          <h3>Нажмите «Включить бесплатно»</h3>
-          <p>Доступ на 3 дня без карты и регистрации.</p>
-        </div>
-        <div class="step">
-          <h3>Смотрите YouTube</h3>
-          <p>Понравилось — оплатите подписку прямо в браузере.</p>
-        </div>
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">How it works</span>
+      <h2>Three steps to an open internet</h2>
+      <p>No technical knowledge required.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="n">01</div>
+        <h3>Subscribe</h3>
+        <p>Pick a plan, pay by card. Your access details arrive by email in under a minute.</p>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <h3>Download the app</h3>
+        <p>Official, free client apps for Windows, macOS, iOS and Android.</p>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <h3>Connect &amp; browse freely</h3>
+        <p>One tap to connect. Your traffic is now indistinguishable from regular HTTPS browsing.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section>
-    <div class="wrap">
-      <div class="final">
-        <h2>Верните YouTube на нормальную скорость</h2>
-        <p>Бесплатно 3 дня. Без карты, без регистрации, без слежки.</p>
-        <div class="cta">
-          <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11"/><path d="M8 11l4 4 4-4"/><path d="M5 20h14"/></svg>
-            Установить для Chrome
-          </a>
-          <a class="btn btn-ghost" href="https://t.me/venom_vpn_bot" target="_blank" rel="noopener">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 4.5l-19 8 6 2.2"/><path d="M21.5 4.5L18 20l-6.5-5.3"/><path d="M8.5 14.7L18 6.5"/></svg>
-            Telegram-бот
-          </a>
-        </div>
+<section class="sec" id="tech">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Technology</span>
+      <h2>Built on VLESS + Reality</h2>
+    </div>
+    <div class="tech-grid">
+      <ul class="tech-list">
+        <li><span class="chk">▸</span><span><b>Undetectable by DPI.</b> Reality makes your connection mimic a real TLS handshake to a legitimate website — there's no distinctive VPN fingerprint to flag.</span></li>
+        <li><span class="chk">▸</span><span><b>No logs, ever.</b> We don't record what you connect to, when, or for how long.</span></li>
+        <li><span class="chk">▸</span><span><b>Modern, fast protocol.</b> VLESS is lighter than legacy VPN protocols — lower latency, better for video and calls.</span></li>
+        <li><span class="chk">▸</span><span><b>Official clients only.</b> No modified apps, no third-party builds — just the standard, auditable clients.</span></li>
+      </ul>
+      <div class="term-box"><span class="dim">$</span> connecting to relay...
+<span class="dim">$</span> tls fingerprint: <span>chrome/win32</span>
+<span class="dim">$</span> protocol: <span>vless+reality</span>
+<span class="dim">$</span> dpi signature: <span>none detected</span>
+<span class="dim">$</span> status: <span>connected — 47ms</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Pricing</span>
+      <h2>Simple plans, no surprises</h2>
+      <p>Cancel anytime. All plans include every feature — the only difference is how much you save.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="plan">
+        <div class="name">Monthly</div>
+        <div class="price">$5<span>/mo</span></div>
+        <div class="sub">Billed monthly</div>
+        <ul>
+          <li>Unlimited bandwidth</li>
+          <li>VLESS + Reality protocol</li>
+          <li>All devices supported</li>
+          <li>24/7 support</li>
+        </ul>
+        <a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener" class="btn btn-ghost">Choose Monthly</a>
+      </div>
+      <div class="plan featured">
+        <div class="plan-badge">MOST POPULAR</div>
+        <div class="name">3 Months</div>
+        <div class="price">$12<span>/3mo</span></div>
+        <div class="sub">= $4/mo · save 20%</div>
+        <ul>
+          <li>Unlimited bandwidth</li>
+          <li>VLESS + Reality protocol</li>
+          <li>All devices supported</li>
+          <li>24/7 support</li>
+        </ul>
+        <a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener" class="btn btn-primary">Choose 3 Months</a>
+      </div>
+      <div class="plan">
+        <div class="name">Yearly</div>
+        <div class="price">$36<span>/yr</span></div>
+        <div class="sub">= $3/mo · save 40%</div>
+        <ul>
+          <li>Unlimited bandwidth</li>
+          <li>VLESS + Reality protocol</li>
+          <li>All devices supported</li>
+          <li>24/7 support</li>
+        </ul>
+        <a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener" class="btn btn-ghost">Choose Yearly</a>
       </div>
     </div>
-  </section>
-</main>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">FAQ</span>
+      <h2>Questions, answered</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Which countries does this work in?</summary>
+        <p>Venom VPN is designed for high-censorship environments where standard VPN protocols get detected and blocked. It works globally, including in countries with active DPI-based filtering.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is it legal to use a VPN?</summary>
+        <p>VPN software itself is legal in the vast majority of countries. Local laws vary — you're responsible for complying with the regulations of your own jurisdiction.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What devices are supported?</summary>
+        <p>Official apps for Windows, macOS, iOS and Android, using standard, unmodified VLESS clients.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How is this different from other VPNs?</summary>
+        <p>Most VPNs use protocols that DPI systems can fingerprint and block. Venom uses Reality, which mimics a real website's TLS handshake — there's no VPN-shaped signature to detect.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What's your refund policy?</summary>
+        <p>7-day money-back guarantee on your first purchase, no questions asked. See our <a href="/refund">Refund Policy</a> for details.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="trust">
+  <div class="wrap">
+    <div class="trust-grid">
+      <div class="trust-item"><div class="ic">🔒</div><div class="t">No-logs policy</div><div class="d">We never record your activity</div></div>
+      <div class="trust-item"><div class="ic">🛡️</div><div class="t">Encrypted end-to-end</div><div class="d">Industry-standard encryption</div></div>
+      <div class="trust-item"><div class="ic">⚙️</div><div class="t">Official protocols</div><div class="d">VLESS + Reality, audited &amp; open</div></div>
+      <div class="trust-item"><div class="ic">💳</div><div class="t">Secure checkout</div><div class="d">Payments processed by Gumroad</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap">
+    <h2 class="glow">Ready to browse freely?</h2>
+    <p>Set up in under 5 minutes. Cancel anytime.</p>
+    <a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener" class="btn btn-primary">Get Started</a>
+  </div>
+</section>
 
 <footer>
-  <div class="wrap">
-    <div class="foot-links">
-      <a href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener">Расширение Chrome</a>
-      <a href="https://t.me/venom_vpn_bot" target="_blank" rel="noopener">Telegram-бот</a>
-      <a href="https://t.me/venom_vpn_claude" target="_blank" rel="noopener">Канал</a>
+  <div class="wrap footer-row">
+    <div>
+      <div class="brand"><img src="assets/logo.png" alt="Venom VPN"> Venom VPN</div>
+      <div class="footer-copy">© 2026 Venom VPN. All rights reserved.</div>
     </div>
-    © 2026 Venom VPN
+    <div class="footer-links">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+      <a href="/refund">Refund Policy</a>
+      <a href="mailto:support@venomvpn.app">support@venomvpn.app</a>
+    </div>
   </div>
 </footer>
+
+<div id="pay-overlay" style="display:none; position:fixed; inset:0; background:rgba(6,10,8,0.75); z-index:100; align-items:center; justify-content:center; padding:20px;">
+  <div style="background:var(--card); border:1px solid var(--border); border-radius:16px; padding:32px; max-width:380px; width:100%; text-align:center; position:relative;">
+    <span onclick="closePay()" style="position:absolute; top:14px; right:18px; cursor:pointer; color:var(--text-dim); font-size:20px;">&times;</span>
+    <div id="pay-body"></div>
+  </div>
+</div>
+
+<script>
+var PAY_API = 'https://youtubevpn.duckdns.org:8443/global-api';
+var TARIFF_LABELS = {'1m':'Monthly — $5', '3m':'3 Months — $12', '12m':'Yearly — $36'};
+var payPollTimer = null;
+
+function openPay(code) {
+  document.getElementById('pay-overlay').style.display = 'flex';
+  renderEmailForm(code);
+}
+
+function closePay() {
+  document.getElementById('pay-overlay').style.display = 'none';
+  if (payPollTimer) { clearInterval(payPollTimer); payPollTimer = null; }
+}
+
+function renderEmailForm(code) {
+  document.getElementById('pay-body').innerHTML =
+    '<h3 style="margin:0 0 6px;">' + TARIFF_LABELS[code] + '</h3>' +
+    '<p style="color:var(--text-dim); font-size:14px; margin:0 0 18px;">Pay with USDT (TRC-20). Access delivered instantly after payment confirms on-chain.</p>' +
+    '<input id="pay-email" type="email" placeholder="you@example.com" style="width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:var(--bg-alt); color:var(--text); font-family:inherit; font-size:15px; margin-bottom:14px; box-sizing:border-box;">' +
+    '<div id="pay-error" style="color:#ff5c5c; font-size:13px; margin-bottom:10px; display:none;"></div>' +
+    '<button class="btn btn-primary" style="width:100%; padding:13px;" onclick="startPayment(\'' + code + '\')">Continue to payment</button>';
+}
+
+function startPayment(code) {
+  var email = document.getElementById('pay-email').value.trim();
+  var errEl = document.getElementById('pay-error');
+  if (!email || email.indexOf('@') === -1) {
+    errEl.textContent = 'Enter a valid email — your access link will be sent nowhere else but shown here.';
+    errEl.style.display = 'block';
+    return;
+  }
+  document.getElementById('pay-body').innerHTML = '<p style="color:var(--text-dim);">Creating invoice…</p>';
+  fetch(PAY_API + '/payments/create', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({email: email, tariff_code: code})
+  }).then(function(r) { return r.json(); }).then(function(data) {
+    renderWaiting(data);
+  }).catch(function() {
+    document.getElementById('pay-body').innerHTML = '<p style="color:#ff5c5c;">Could not create invoice. Please try again or contact support@venomvpn.app.</p>';
+  });
+}
+
+function renderWaiting(data) {
+  var qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=' + encodeURIComponent(data.address || data.pay_url);
+  document.getElementById('pay-body').innerHTML =
+    '<h3 style="margin:0 0 14px;">Send ' + data.amount_usdt + ' USDT</h3>' +
+    '<img src="' + qrUrl + '" style="width:180px; height:180px; border-radius:10px; margin-bottom:14px;">' +
+    '<div class="mono" style="font-size:12px; word-break:break-all; background:var(--bg-alt); border:1px solid var(--border); border-radius:8px; padding:10px; margin-bottom:14px;">' + data.address + '</div>' +
+    '<p id="pay-status" style="color:var(--text-dim); font-size:13px;">Waiting for payment confirmation…</p>';
+  payPollTimer = setInterval(function() { pollStatus(data.payment_id); }, 5000);
+  pollStatus(data.payment_id);
+}
+
+function pollStatus(paymentId) {
+  fetch(PAY_API + '/payments/' + paymentId + '/status').then(function(r) { return r.json(); }).then(function(data) {
+    if (data.status === 'completed' || data.status === 'overpaid') {
+      clearInterval(payPollTimer);
+      payPollTimer = null;
+      renderDone(data.sub_link);
+    } else {
+      var el = document.getElementById('pay-status');
+      if (el) el.textContent = 'Status: ' + data.status + ' — checking every few seconds…';
+    }
+  }).catch(function() {});
+}
+
+function renderDone(subLink) {
+  document.getElementById('pay-body').innerHTML =
+    '<h3 style="margin:0 0 10px; color:var(--accent);">Payment confirmed</h3>' +
+    '<p style="color:var(--text-dim); font-size:14px; margin:0 0 14px;">Add this subscription link in v2rayNG / Streisand / Shadowrocket:</p>' +
+    '<div class="mono" style="font-size:11px; word-break:break-all; background:var(--bg-alt); border:1px solid var(--border); border-radius:8px; padding:10px; margin-bottom:14px;">' + subLink + '</div>' +
+    '<button class="btn btn-primary" style="width:100%; padding:12px;" onclick="navigator.clipboard.writeText(\'' + subLink + '\')">Copy link</button>';
+}
+</script>
 
 </body>
 </html>
