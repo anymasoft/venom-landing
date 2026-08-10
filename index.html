@@ -45,6 +45,8 @@
   /* trust row */
   .trust{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin:34px 0 8px;color:var(--muted);font-size:14px;}
   .trust b{color:var(--text);}
+  .ti{width:17px;height:17px;vertical-align:-3px;}
+  .btn svg{flex:0 0 auto;}
 
   /* sections */
   section{padding:52px 0;}
@@ -99,17 +101,19 @@
       <p>Venom VPN — расширение для Chrome. Открывает YouTube и заблокированные сайты без замедления. Никаких аккаунтов и настроек: поставил, нажал — поехали.</p>
       <div class="cta">
         <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener">
-          ⬇ Установить расширение для Chrome
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11"/><path d="M8 11l4 4 4-4"/><path d="M5 20h14"/></svg>
+          Установить расширение для Chrome
         </a>
         <a class="btn btn-ghost" href="https://t.me/venom_vpn_bot" target="_blank" rel="noopener">
-          ✈ Открыть Telegram-бот
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 4.5l-19 8 6 2.2"/><path d="M21.5 4.5L18 20l-6.5-5.3"/><path d="M8.5 14.7L18 6.5"/></svg>
+          Открыть Telegram-бот
         </a>
       </div>
       <div class="undernote">Работает и на ПК, и на Android — по одной подписке</div>
       <div class="trust">
-        <span>⚡ <b>Быстрый</b> выделенный сервер</span>
-        <span>🔒 <b>Без слежки</b> и без P2P</span>
-        <span>🎯 <b>Заточен</b> под YouTube</span>
+        <span><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="#26215C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 13h5l-1 8 8-11h-5l1-7z"/></svg> <b>Быстрый</b> выделенный сервер</span>
+        <span><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="#26215C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 8.5-4-1-7-4-7-8.5V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg> <b>Без слежки</b> и без P2P</span>
+        <span><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="#26215C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/></svg> <b>Заточен</b> под YouTube</span>
       </div>
     </div>
   </section>
@@ -120,17 +124,17 @@
       <p class="sub">Мы убрали всё, что бесит в бесплатных VPN.</p>
       <div class="grid">
         <div class="card">
-          <div class="ic">🚀</div>
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#26215C" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l13 7.5-5.5 1.8 2.8 5.5-2.6 1.4-2.8-5.5L6 18z"/></svg></div>
           <h3>Один клик — и работает</h3>
           <p>Без регистрации, без ввода кодов и настроек. Установил расширение, нажал «Включить» — YouTube открывается сразу.</p>
         </div>
         <div class="card">
-          <div class="ic">🛡️</div>
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#26215C" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 8.5-4-1-7-4-7-8.5V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
           <h3>Честная приватность</h3>
           <p>Выделенный сервер, только ваш трафик. Мы не P2P: не гоняем через вас чужой трафик и не светим ваш IP — в отличие от «бесплатных» сетей.</p>
         </div>
         <div class="card">
-          <div class="ic">💳</div>
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#26215C" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg></div>
           <h3>Прозрачно и без рекламы</h3>
           <p>3 дня бесплатно, потом честные 400 ₽/мес. Оплата картой или СБП прямо в браузере. Никаких рекламных баннеров в окне.</p>
         </div>
@@ -165,8 +169,14 @@
         <h2>Верните YouTube на нормальную скорость</h2>
         <p>Бесплатно 3 дня. Без карты, без регистрации, без слежки.</p>
         <div class="cta">
-          <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener">⬇ Установить для Chrome</a>
-          <a class="btn btn-ghost" href="https://t.me/venom_vpn_bot" target="_blank" rel="noopener">✈ Telegram-бот</a>
+          <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/dmhginjaaknpphbdedgkgooicdpdojce" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11"/><path d="M8 11l4 4 4-4"/><path d="M5 20h14"/></svg>
+            Установить для Chrome
+          </a>
+          <a class="btn btn-ghost" href="https://t.me/venom_vpn_bot" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 4.5l-19 8 6 2.2"/><path d="M21.5 4.5L18 20l-6.5-5.3"/><path d="M8.5 14.7L18 6.5"/></svg>
+            Telegram-бот
+          </a>
         </div>
       </div>
     </div>
